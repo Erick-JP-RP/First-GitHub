@@ -1,0 +1,91 @@
+<!--  Git es un software de control de versiones, donde registraremos todos los sucesos realizados durante el tiempo de vida de un proyecto.
+
+Para que sirve una bitacora:
+1. Para tener un historial de viaje cronológico y ordenado
+2. Para recordar eventos específicos de un viaje pasado
+3. Experiencia documentada para que otros aprendan
+4. Mejorar en los siguientes viajes
+
+
+Características de una buena bitacora 
+1. Cronológico (No debes anotar sucesos anteriores que se te hayan olvidado, por ejemplo si hoy en 16 anotar sucesos del día 14)
+2. Muchos registros (Registrar varios eventos al día será lo recomendable)
+3. Eventos detallados
+
+
+Git
+Es un sistema de control de versiones (SCV) en otras palabras; administrar los cambios que sucenden en el código. 
+GIT se utiliza en una terminal de comandos.
+
+Si ves en la version de GIT 8.4.3
+El primer dígito "8" se refiere a la versión mayor/versión actual que estamos utilizando
+El segundo dítito "4" se refiere a la versión menor/ versión anterior solo se pueden realizar algunas configuraciones básicas pero que no afecten el total funcionamiento del software 
+El tercer dítito "3" se refiere a la versión fix/ soluciona algunos inconvenientes menores sin generar una nueva versión mayor.
+
+
+Algunos comandos son:
+
+
+ctr + l   limpiar terminal 
+clear     limpiar terminal
+
+git -v (version)
+git --version
+
+ls es para listar lo que hay dentro de una carpeta (Los elementos que se encuentran dentro de una carpeta)
+ls -la  listar todo (list all)
+
+Una buena preactica es no utilizar espacios ni caracteres especiales al nombrar archivos y carpetas en GIT nos servirá para navegar entre carpetas (Se crea la carpeta GIT-desde-cero)
+
+
+
+Repositorio 
+Es el lugar donde se va a guardar todo el historial de cambios que realicé en mi código.
+
+git init  significa git initializer para crear un nuevo repositorio por cada proyecto; aparecera una nueva carpeta .git de manera oculta.
+
+cd + nombre de la carpeta sirve para entrar a una carpeta desde la terminal o movernos a una carpeta en particular
+cd sirve para salir de todas las carpetas
+
+
+
+Git requiere de una configuracion donde le pongas tu nombre y correo para saber que persona realizó algún cambio
+
+
+git config --global user.name "Erick J.P Ríos Preciado"  Esta configuracion estará guardada de manera global por defecto  y se utilizará para todo los proyectos y sistema operativo. Solo dar enter para guardar.
+git config --global user.email "sensa_ios@hotmail.com"   Dar enter
+git config --global core.edit "vim"   Configuracion del editor por defecto
+
+Para saber si fue guardada dicha configuracion
+git config user.name
+git config user.email
+git config core.edit
+
+
+git config --help Para saber que configuraciones se pueden realizar (Se abrirá en un navegador)
+
+
+
+Git status
+Si ya estás dentro de la carpeta " Desktop/GIT/git-desde-cero" puedes colocar el comando "git status" donde te dirá  un mensaje que dice: Untraked files (Archivos sin seguimiento) y aparecera mi arvhivo Git.html
+para que git detecte los cambios en las versiones le tienes que presentar el archivo o borrarlo.
+
+en esa misma parte abajo se señala "No hay nada agregado al commit pero hay archivos sin seguimientos presentes, usa (git add para hacer seguimiento)" con git add le presentaremos a git el arvhivo Git.html
+entonces colocaremos git add Guit.html y enter.
+
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba GIT</title>
+</head>
+<body>
+    <h1>Prueba de GIT</h1>
+</body>
+</html>
