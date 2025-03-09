@@ -125,12 +125,19 @@ git status
 
 
 
-
+                                 Stage y Commit
 Otra forma de pasar del directorio de trabajo al área de preparacion puede ser pasar una carpeta completa y no solo un archivo;
 por lo que creamos una carpeta imagenes y agregamos una imagen dentro de la carpeta, colocamos git status en consola y hace referencia a toda la carpeta de imagenes y no una imagen en particular.
 git add Imagenes/          tambien  podemos poner   git add . (El punto se refiere a una carpeta) esto funciona cuando estás dentro de una carpeta se tomara todos los elementos que contiene dicha carpeta.
-otra opción para agregar todo de una vez al área de preparacion es  git add -A (No importa si estás dentro de una carpeta o subcarpeta)
+otra opción para agregar todo de una vez al área de preparacion es  git add -A (No importa si estás dentro de una carpeta o subcarpeta todo se pasará al área de preparación)
+git status
+al pasar del área de preparación al repositorio (git commit -m "") las imagenes no se consideraran como lineas de insersion, ya que no es un código.
+git log (Muestra el historial de cambios); para salir de la pantalla de log es con la tecla q
 
+
+Revertir cambios del área de stage.
+Si tenemos cambios en stage area y hay algunos documentos incorrectos podemos sacarlos con el comando
+ git restore --staged Git.css
 
 
 
@@ -146,7 +153,7 @@ otra opción para agregar todo de una vez al área de preparacion es  git add -A
     <title>Prueba GIT</title>
 </head>
 <body>
-    <h1>Prueba de GIT</h1>
+    <h1 class="title">Prueba de GIT</h1>
     <p>Éste es un cambio en el párrafo 12</p>
 </body>
 </html>
