@@ -137,10 +137,52 @@ git log (Muestra el historial de cambios); para salir de la pantalla de log es c
 
 Revertir cambios del área de stage.
 Si tenemos cambios en stage area y hay algunos documentos incorrectos podemos sacarlos con el comando
- git restore --staged Git.css
+ git restore --staged Git.css (un archivo en concreto o carpeta completa)
+
+Con el comando git checkout Git.css (archivo en concreto o carpeta completa) podemos restaurar la versión anterior si dicho arvhivo se encuentra dentro del área de trabajo.
+ *La versión anterior es la que ya se confirmo con un commit anteriormente, esta version confirmada ya no se puede modificar por más git checkout que pongamos)
 
 
 
+
+
+                                    Entendimiento del Commit y del log
+
+Al colorar en consola git log te saldrán todos commits que se han guardado en la cual tienen un ID alfanumérico, sin embargo, para hacer referencia a un commit en específico,
+deberíamos de utilizar un aproximado de 6 a 7 dígitos más menos; además en el commit aparecerá información como del autor, día y el mensaje del commit.
+colocamos la letra q para salir del log
+y utilizamos el comando git show y el número de ID (4fd3821432) y enter.
+saldrá informacion como: diff --git a/Git.html b/Git.html  que significa que archivos fueron modificados y guardados en el commit. Además
+de informacion de las lineas nuevas agregadas, borradas y modificadas.
+
+
+
+Git log
+git log puede contener miles de commit agregados en el proyecto pero git te da una opcion de verlos más fácilmentes 
+Para no ver todos los commits del log se tiene el comando git log --oneline que mostrará los ID por cada commit y las notas agregadas.
+
+
+otra opción muy buena sería utilizar el comando
+git log --oneline Git.css
+
+otra opción podría ser si quiero saber todos los commits que se han creado por autor, el comando sería
+git log --oneline --author="Erick J.P Ríos Preciado"
+
+
+podríamos combinarlos como a continuación:
+ git log --author="Erick J.P Ríos Preciado" Git.css
+ git log --oneline --autor="Erick J.P Ríos Preciado" Git.css
+ git log --autor="Erick J.P Ríos Preciado" --oneline
+
+
+ otro comando que nos ayuda a buscar "por palabra" agragada en la nota sería:
+ git log --oneline --grep="estilos"
+
+
+
+                            Viajar en el tiempo con git
+
+                            
 
 -->
 
