@@ -182,12 +182,79 @@ podríamos combinarlos como a continuación:
 
                             Viajar en el tiempo con git
 Para viajar en el tiempo con git se utiliza el siguiente comando: git checkout (número de commit).
-La consideración para viajar en el tiempo es que no tengas archivos en el area de trabajo y area de preparación; por lo que los autorizas hasta el commit o los borras.                         
+La consideración para viajar en el tiempo es que no tengas archivos en el area de trabajo y area de preparación (En caso contrario saldrá un error); por lo que los autorizas hasta el commit o los borras.                         
+
+El viaje en el tiempo es literal, al escoger un cambio te transaladas a ese punto en éspecífico por lo que si hoy en día supongamos tienes 10 commits y viajas en el tiempo al segundo commit, solo verás el código como estuvo en ése momento (solo verás 2 commits en Git y Visual Studio code solo te mostrará la información que tenías en ese momento)
 
 para volver al presente se utiliza el siguient comando: git checkout master
 
 
 
+
+                                 Las Ramas de GIT
+si utilizamos el siguiente comando git log --oneline --graph aparecerán los commits con un asterisco
+
+Los asteriscos representan los commits y las líneas representan las ramas (Linea temporal en la que estamos trabajando)
+
+*Commit más reciente
+|
+*
+|
+*
+|
+*Primer commit
+
+
+La rama que creamos con git init (inicial) se llama rama master; en algunos proyectos se llamara rama main.
+
+Rama Main
+|
+|   Nueva rama  (Nueva linea de tiempo independiente de la rama main; además tendrá sus propios commits)
+| / 
+|/
+*Commit más reciente
+|
+*
+
+La rama main puede seguir creciendo en paralelo mientras la nueva rama crea sus propios commits.
+
+
+
+
+
+                                        Ver la rama con la que estoy trabajando
+con git branch obtememos un listado de todas las ramas que tiene nuestro proyecto aparecerá *master
+el asterisco señalara la rama en la que estás trabajando actualmente.
+
+
+
+                                         Crear nuevas ramas
+git checkout -b (nombre de la nueva rama) en este ejemplo la nueva rama la llamaremos dev, entonces quedaría
+git checkout -b dev            en git ya aparecerá la rama con la que estas trabajando
+
+
+Podemos llamar a git branch para ver la rama que estamos utilizando con *
+después podemos llamar a git log --oneline --graph donde aparentemente no hay alguna diferencia, sin embargo, en uno de los commits aparecerá head -> dev, master 
+quiere decir que nuestra área de trabajo "Head" esta apuntando a dos ramas, la rama dev y la rama master.
+
+
+
+                                            Borrar una rama
+git branch -d (nombre de la rama a eliminar)
+git branch -d dev
+
+Para borrar una rama no debemos estar utilizando esa rama, por lo que debemos cambiar de rama para borrarla.
+por lo que podemos regresar a la rama master con el comando: git checkout (nombre de la rama).
+por lo que quedaría como git checkout master
+y ahora si podemos colocar git branch -d dev                             (- d significa delete)
+
+
+    Segunda forma para cambiar de rama es con el comando:
+git switch - c dev             (-c significa create) + (nombre de la rama) por lo que el significado es creo una rama y me moveré a esa rama.
+*Se intenta poner un standar para que switch sea el único método para cambiar y crear una rama, aunque es más utilizado hoy día con checkout.
+
+moverme a la rama master con el comando
+git switch master 
 
 
 
@@ -214,5 +281,6 @@ para volver al presente se utiliza el siguient comando: git checkout master
 <body>
     <h1 class="title">Prueba de GIT</h1>
     <p>Éste es un cambio en el párrafo 12</p>
+    <img src="Imagenes/anime-girl.jpg" alt="">
 </body>
 </html>
