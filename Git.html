@@ -258,6 +258,32 @@ git switch master
 
 
 
+                              Proporsito de tener ramas de trabajo
+La rama main es con la que los usuarios ya están trabajando
+nosotros como desarrollador utilizaremos una rama alternativa para realizar pruebas o rediseños; en este caso es nuestra rama dev
+Si los cambios están correctos en dev y aprobados, podemos pasarlos a la rama master. (Se fucionan las ramas)
+
+Creamos un nuevo archivo llamado README.MD (Markdown  = documento de texto simple)
+
+con git status vemos los archivos que se van a requerir confirmar en el commit
+por lo que los agregamos con git add Git.html, y git add Git.csss
+
+Ya agregados esos cambios al stage esos dos archivos se pueden confirmar en un único commit
+git commit -m "Se agregó imagen anime y se dio color al h1"       id commit 18dc8230d
+
+Despues se pasa el arvhivo README.md al stage para ser confirmado posterior a ello en otro commit.
+Si colocamos denuevo git log podremos observar de donde empieza y termina la rama master y donde empieza y termina la rama dev
+tambien podemos utilizar git log --oneline --graph
+
+
+*En el código (visual studio code) si me muevo a la rama master el Readme me lo tachará ya que no existe el readme en la rama master.
+además la informacion de los archivos Git.html Git.css donde se agregó el commit "Se agregó imagen anime y se dio color al h1" desaparecerá del código.
+por lo que si quieres ver dicha información deverás volver a cambiar a la rama donde se agregaron esos cambios.
+
+
+
+
+
 
 
 
