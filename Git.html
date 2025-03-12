@@ -285,6 +285,22 @@ por lo que si quieres ver dicha información deverás volver a cambiar a la rama
 
 
 
+Fusionando ramas
+Para fucionar los cambios yo necesito estar parado en la rama que está más abajo o más atras.
+
+Si yo estoy parado en la rama dev y coloco el comando  git log --oneline --graph
+la rama de abajo sería la rama master, por lo que debo cambiarme a la rama master con el comando git switch master.
+
+
+Cuando ya estoy en la rama master estoy diciendo oye rama dev combinate con migo.
+pero antes de fucionar las ramas podemos realizar una comparación entre ramas
+por lo que utilizaremos el comando git diff dev (diff = diferencias) en este caso como ya estamos parados en la rama master solo especificaremos la rama a comparar dev.
+nota extra: Se puede comparar de dev a master por igual de acuerda a la rama en que estemos parados.
+
+
+Si estoy parado en la rama master y quiero que los cambios de dev se pasen a la rama master colocaré el siguiente comando.
+git merge dev (merge=mesclar/fusionar)
+
 
 
 
