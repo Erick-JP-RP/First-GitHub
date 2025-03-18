@@ -301,12 +301,58 @@ nota extra: Se puede comparar de dev a master por igual de acuerda a la rama en 
 Si estoy parado en la rama master y quiero que los cambios de dev se pasen a la rama master colocaré el siguiente comando.
 git merge dev (merge=mesclar/fusionar)
 
+aparecera algo así:
+Updating 91064bd..a8ca79b
+Fast-forward
+ Git.css   |   3 ++                      (tres lineas nuevas)
+ Git.html  | 112 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ README.md |   3 ++                      (Apareció un archivo readme con 3 lineas nuevas)
+ 3 files changed, 117 insertions(+), 1 deletion(-)
+ create mode 100644 README.md             (Se creo el archivo readme.md)
 
 Si estamos en la rama dev no debemos modificar para hacer alguna corrección por lo que se recomienda 
 crear una nueva rama temporal llamada git switch -c fix/title-color
 
 Con el siguiente comando podrás observar la vifurcacion o las dos raices nuevas que salieron de dev
 git log --oneline --all --graph
+
+ si utilizamos el comando git log --oneline --graph podremos observar que el commit a8ca79b  que antes solo existía en dev ahora se encuentra en la rama master.
+
+
+
+Una buena practica es que la rama main no debería estar por delante de una rama secundaria ¿Por que? Por que la rama secundaria ha nacido de la rama original para poder crecer en paralelo,
+la rama master hasta que no haya una funcion con esa rama, no debería seguir creciendo.
+En otras palabras la rama secundaria debe seguir creciendo más que la rama master hasta que exista una fusión.
+
+
+por lo que ahora cambiaremos a la rama dev y fusionaremos con git merge master
+ahora bien para ramas ya muy secudanrias podríamos borrar las ramas con git branch -d dev,
+pero como ya habíamos fucionado el código antes a la rama master los cambios fucionados ya estan en master.
+los commits de la rama dev que se borran ahora pertenecen a la rama master.
+
+
+
+
+Entender que signigica la comparación al utilizar el comando git diff dev
+
+
+diff --git a/Git.html b/Git.html                (muestra qué archivo se está comparando)
+index 91ec8d9..ce6ffc0 100644                    metadatos del archivo (muestra los identificadores internos de Git para las versiones anterior y posterior)
+--- a/Git.html                                     marcadores de archivo (indican los archivos "antes" y "después")
++++ b/Git.html
+@@ -301,9 +301,30 @@ nota extra: Se puede comparar de dev a master por igual de       (muestra las líneas afectadas)
+acuerda a la rama en
+ Si estoy parado en la rama master y quiero que los cambios de dev se pasen a la
+ rama master colocaré el siguiente comando.
+ git merge dev (merge=mesclar/fusionar)
+
+
+
+
+Ejercicios 
+*Podemos tener la rama master(producción), la rama test (calidad), la rama dev (desarrollo).
+Dichas ramas nunca debe ser modificadas, eliminadas o trabajar sobre ellas y solo deben recibir cambios
+Por lo tanto debemos crear ramas temporales y trabajar sobre ellas. en este caso se creó una nueva rama llamada feature/contact-paga (Aquí se desarrollará todo el código para una página de contactos)
 
 
 
@@ -328,5 +374,8 @@ git log --oneline --all --graph
     <h1 class="title">Prueba de GIT</h1>
     <p>Éste es un cambio en el párrafo 12</p>
     <img src="Imagenes/anime-girl.jpg" alt="">
+
+<a href="contact.html">Contactanos</a>
+
 </body>
 </html>
