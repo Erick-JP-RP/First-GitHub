@@ -351,8 +351,27 @@ acuerda a la rama en
 
 Ejercicios 
 *Podemos tener la rama master(producción), la rama test (calidad), la rama dev (desarrollo).
-Dichas ramas nunca debe ser modificadas, eliminadas o trabajar sobre ellas y solo deben recibir cambios
-Por lo tanto debemos crear ramas temporales y trabajar sobre ellas. en este caso se creó una nueva rama llamada feature/contact-paga (Aquí se desarrollará todo el código para una página de contactos)
+Dichas ramas nunca debe ser modificadas o eliminadas directamente y solo deben recibir cambios
+Por lo tanto debemos crear ramas temporales y trabajar sobre ellas 
+por lo que para crear una rama temporal de dev debemos primero estár posicionados en la rama dev y despues crear una rama temporal como git switch -c feature/contact-page (Aquí se desarrollará todo el código para una página de contactos)
+
+
+El único proposito de test es recibir informacion de la rama dev y el proposito de master es recibir la informacion de test.
+con la tecla tab se puede autocompletar un contenido, si estamos en alguna rama como dev y colocamos git branch -d feature(tab) se completará la información.
+
+cuando un cambio se ha quedado muy abajo (por retraso) podría salir un mensaje en MINGW64, vim ó VS code.
+en ese caso deberia guardarse con contol + s
+
+para MINGW64 ó vim es utilizar :wq  (write quite) enter
+
+Mensaje:
+Merge branch 'feature/contact-page' into dev
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
 
 
 
