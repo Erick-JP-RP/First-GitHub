@@ -5,5 +5,9 @@
 }
 
 h1 {
+<<<<<<< HEAD
     color: rgb(rgb(0, 4, 255), green, blue);
+=======
+    color: rgb(rgb(38, 0, 255), green, blue);
+>>>>>>> fix/title-color
 }
