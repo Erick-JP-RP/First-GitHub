@@ -8,7 +8,7 @@ Para que sirve una bitacora:
 
 
 Características de una buena bitacora 
-1. Cronológico (No debes anotar sucesos anteriores que se te hayan olvidado, por ejemplo si hoy en 16 anotar sucesos del día 14)
+1. Cronológico (No debes anotar sucesos anteriores que se te hayan olvidado, por ejemplo si hoy en 16 anotar sucesos del día 14 esta mal)
 2. Muchos registros (Registrar varios eventos al día será lo recomendable)
 3. Eventos detallados
 
@@ -62,12 +62,14 @@ git config user.email
 git config core.edit
 
 
-git config --help Para saber que configuraciones se pueden realizar (Se abrirá en un navegador) ó git config -h (se abrirá en git)
+git config --help Para saber que configuraciones se pueden realizar (Se abrirá en un navegador) ó git config -h (se abrirá en consola git)
+tambien se puede usar
+git --help y git -h y podrás observar algunos comandos comunmente utilizados
 
 
 
 Git status
-Si ya estás dentro de la carpeta " Desktop/GIT/git-desde-cero" puedes colocar el comando "git status" donde saldrá un mensaje que dice: Untraked files (Archivos sin seguimiento) y aparecera mi arcvhivo Git.html en color rojo.
+Si ya estás dentro de la carpeta " Desktop/GIT/git-desde-cero" puedes colocar el comando "git status" donde saldrá un mensaje que dice: Untraked files (Archivos sin seguimiento) y aparecera mi archivo Git.html en color rojo.
 Para que git detecte los cambios en las versiones le tienes que presentar el archivo (git add) o borrarlo (git rm).
 
 en esa misma parte abajo se señala "No hay nada agregado al commit pero hay archivos sin seguimientos presentes, usa (git add para hacer seguimiento)"
@@ -80,7 +82,7 @@ si volvemos a llamar git status aprecera el mensaje  "Changes to be committed" (
 
 
 Git commit (confirmar)
-Sirve para agregar un mensaje muy claro (al ya haber presentado a git el archivo Git.html) para  poder confirmar y guardar los cambios.
+Sirve para  confirmar los cambios y guardarlos; se debe agregar un mensaje muy claro (al ya haber sido presentado a git el archivo Git.html) 
 
 git commit -m "Se crea el archivo Git.html que será la página inicial del sitio web"      Dentro de las comillas poner el mensaje (-m significa mensaje)
 
@@ -110,7 +112,7 @@ El comando git commit envía la información del área de preparación al reposi
 
 
 En visual studio code podrás ver una linea verde cuando agregas un nuevo cambio, una linea roja cuando eliminas un linea o cambio de código y una rayada cuando se realizó una modificación.
-Además. el título del archivo se coloca en amarillo y en el listado de archivos se observa una letra M (modificado)
+Además, el título del archivo se coloca en amarillo y en el listado de archivos se observa una letra M (modificado) esto en VS code.
 
 
 
@@ -127,7 +129,7 @@ git status
 
                                  Stage y Commit
 Otra forma de pasar del directorio de trabajo al área de preparacion puede ser pasar una carpeta completa y no solo un archivo;
-por lo que creamos una carpeta imagenes y agregamos una imagen dentro de la carpeta, colocamos git status en consola y hace referencia a toda la carpeta de imagenes y no una imagen en particular.
+por lo que creamos una carpeta imagenes y agregamos unas imagenes dentro de la carpeta, colocamos git status en consola y hace referencia a toda la carpeta de imagenes y no una imagen en particular.
 git add Imagenes/          tambien  podemos poner   git add . (El punto se refiere a una carpeta) esto funciona cuando estás dentro de una carpeta se tomara todos los elementos que contiene dicha carpeta.
 otra opción para agregar todo de una vez al área de preparacion es  git add -A (No importa si estás dentro de una carpeta o subcarpeta todo se pasará al área de preparación)
 git status
@@ -139,7 +141,7 @@ Revertir cambios del área de stage.
 Si tenemos cambios en stage area y hay algunos documentos incorrectos podemos sacarlos con el comando
  git restore --staged Git.css (un archivo en concreto o carpeta completa)
 
-Con el comando git checkout Git.css (archivo en concreto o carpeta completa) podemos restaurar la versión anterior si dicho arvhivo se encuentra dentro del área de trabajo.
+Con el comando git checkout Git.css (archivo en concreto o carpeta completa) podemos restaurar la versión anterior si dicho arcvhivo se encuentra dentro del área de trabajo.
  *La versión anterior es la que ya se confirmo con un commit anteriormente, esta version confirmada ya no se puede modificar por más git checkout que pongamos)
 
 
@@ -176,15 +178,15 @@ podríamos combinarlos como a continuación:
 
 
  otro comando que nos ayuda a buscar "por palabra" agragada en la nota sería:
- git log --oneline --grep="estilos"
+ git log --oneline --grep="estilos"                      la palabre a buscar entre comillas.
 
 
 
                             Viajar en el tiempo con git
 Para viajar en el tiempo con git se utiliza el siguiente comando: git checkout (número de commit).
-La consideración para viajar en el tiempo es que no tengas archivos en el area de trabajo y area de preparación (En caso contrario saldrá un error); por lo que los autorizas hasta el commit o los borras.                         
+La consideración para viajar en el tiempo es que no tengas archivos en el area de trabajo y area de preparación (En caso contrario saldrá un error); por lo que autorizas los documentos hasta el commit o los borras.                         
 
-El viaje en el tiempo es literal, al escoger un cambio te transaladas a ese punto en éspecífico por lo que si hoy en día supongamos tienes 10 commits y viajas en el tiempo al segundo commit, solo verás el código como estuvo en ése momento (solo verás 2 commits en Git y Visual Studio code solo te mostrará la información que tenías en ese momento)
+El viaje en el tiempo es literal, al escoger un cambio te transaladas a ese punto en éspecífico por lo que si hoy en día supongamos tienes 10 commits y viajas en el tiempo al segundo commit, solo verás el código como estuvo en ése momento (solo verás 2 commits en Git y VS code solo te mostrará la información que tenías en ese momento)
 
 para volver al presente se utiliza el siguient comando: git checkout master
 
@@ -271,12 +273,12 @@ por lo que los agregamos con git add Git.html, y git add Git.csss
 Ya agregados esos cambios al stage esos dos archivos se pueden confirmar en un único commit
 git commit -m "Se agregó imagen anime y se dio color al h1"       id commit 18dc8230d
 
-Despues se pasa el arvhivo README.md al stage para ser confirmado posterior a ello en otro commit.
-Si colocamos denuevo git log podremos observar de donde empieza y termina la rama master y donde empieza y termina la rama dev
+Después se pasa el arcvhivo README.md al stage para ser confirmado posterior a ello en otro commit.
+Si colocamos de nuevo git log podremos observar de donde empieza y termina la rama master y donde empieza y termina la rama dev
 tambien podemos utilizar git log --oneline --graph
 
 
-*En el código (visual studio code) si me muevo a la rama master el Readme me lo tachará ya que no existe el readme en la rama master.
+*En el código (VS code) si me muevo a la rama master el Readme me lo tachará ya que no existe el readme en la rama master.
 además la informacion de los archivos Git.html Git.css donde se agregó el commit "Se agregó imagen anime y se dio color al h1" desaparecerá del código.
 por lo que si quieres ver dicha información deverás volver a cambiar a la rama donde se agregaron esos cambios.
 
@@ -313,10 +315,10 @@ Fast-forward
 Si estamos en la rama dev no debemos modificar para hacer alguna corrección por lo que se recomienda 
 crear una nueva rama temporal llamada git switch -c fix/title-color
 
-Con el siguiente comando podrás observar la vifurcacion o las dos raices nuevas que salieron de dev
+Con el siguiente comando podrás observar la bifurcación o las dos raices nuevas que salieron de dev
 git log --oneline --all --graph
 
- si utilizamos el comando git log --oneline --graph podremos observar que el commit a8ca79b  que antes solo existía en dev ahora se encuentra en la rama master.
+si utilizamos el comando git log --oneline --graph podremos observar que el commit a8ca79b  que antes solo existía en dev ahora se encuentra en la rama master.
 
 
 
@@ -325,7 +327,7 @@ la rama master hasta que no haya una funcion con esa rama, no debería seguir cr
 En otras palabras la rama secundaria debe seguir creciendo más que la rama master hasta que exista una fusión.
 
 
-por lo que ahora cambiaremos a la rama dev y fusionaremos con git merge master
+por lo que ahora cambiaremos a la rama dev y fusionaremos con git merge master (esto se realiza cuando la rama master está por encima de la dev)
 ahora bien para ramas ya muy secudanrias podríamos borrar las ramas con git branch -d dev,
 pero como ya habíamos fucionado el código antes a la rama master los cambios fucionados ya estan en master.
 los commits de la rama dev que se borran ahora pertenecen a la rama master.
@@ -340,12 +342,8 @@ diff --git a/Git.html b/Git.html                (muestra qué archivo se está c
 index 91ec8d9..ce6ffc0 100644                    metadatos del archivo (muestra los identificadores internos de Git para las versiones anterior y posterior)
 --- a/Git.html                                     marcadores de archivo (indican los archivos "antes" y "después")
 +++ b/Git.html
-@@ -301,9 +301,30 @@ nota extra: Se puede comparar de dev a master por igual de       (muestra las líneas afectadas)
+@@ -301,9 +301,30 @@                             (muestra las líneas afectadas) nota extra: Se puede comparar en ambos sentidos dev y master 
 acuerda a la rama en
- Si estoy parado en la rama master y quiero que los cambios de dev se pasen a la
- rama master colocaré el siguiente comando.
- git merge dev (merge=mesclar/fusionar)
-
 
 
 
@@ -359,10 +357,8 @@ por lo que para crear una rama temporal de dev debemos primero estár posicionad
 El único proposito de test es recibir informacion de la rama dev y el proposito de master es recibir la informacion de test.
 con la tecla tab se puede autocompletar un contenido, si estamos en alguna rama como dev y colocamos git branch -d feature(tab) se completará la información.
 
-cuando un cambio se ha quedado muy abajo (por retraso) podría salir un mensaje en MINGW64, vim ó VS code.
-en ese caso deberia guardarse con contol + s
+cuando un cambio se ha quedado muy abajo (por retraso) podría salir un mensaje en MINGW64, vim ó VS code como el siguiente:
 
-para MINGW64 ó vim es utilizar :wq  (write quite) enter
 
 Mensaje:
 Merge branch 'feature/contact-page' into dev
@@ -371,6 +367,73 @@ Merge branch 'feature/contact-page' into dev
 #
 # Lines starting with '#' will be ignored, and an empty message aborts
 # the commit.
+
+
+Para ese caso deberia guardarse con contol + s
+para MINGW64 ó vim es utilizar :wq  (write quite) enter
+
+
+                         Git Hub (Proyectos de repositorios en la nube)
+
+El primer comando para sincronizacion sería git remote -v (sirve para verificar si mi carpeta ya está sincronizada con algun repositorio de la nube) sincronizar es como enlazar para posterior subir o bajar archivos
+remote = Lugares donde mi proyecto está sincronizado
+para agregarlo a la nube el comando será:   git remote add origin + (ruta http de github) 
+Por estandar el primer remoto debemos llamarlo origin (carpeta en la nube), los posteriores remoto puedes llamarlos como gustes. 
+quedaría como: git remote add origin https://github.com/Erick-JP-RP/First-GitHub.git y enter
+
+despues consultamos de nuevo con el comando git remote -v y saldrán los siguientes lugares:
+
+origin  https://github.com/Erick-JP-RP/First-GitHub.git (fetch)     este lugar me sirve para traer informacion
+origin  https://github.com/Erick-JP-RP/First-GitHub.git (push)      este lugar me sirve para enviar informacion
+
+ahora colocaremos el comando git push origin master (push es para enviar la informacion a la nube, el origin es para especificar el lugar donde sera guardada la informacion en la nube y master de que rama queremos enviar la informacion a la nube) enter
+despues me pedirá mi usuario y contraseña de github (se puede generar un token desde github en Setting -> developper settings-> Personal access tokens)
+también puede ser que desde el comando utilizado te de la opción de logearte por web.
+
+
+al finalizar me saldrá algo como esto:
+
+$ git push origin master
+info: please complete authentication in your browser...
+Enumerating objects: 72, done.
+Counting objects: 100% (72/72), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (67/67), done.
+Writing objects: 100% (72/72), 1.24 MiB | 159.00 KiB/s, done.
+Total 72 (delta 25), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (25/25), done.
+To https://github.com/Erick-JP-RP/First-GitHub.git
+ * [new branch]      master -> master
+
+
+
+Nota de stackoverflow
+Siempre en un repositorio tienes una rama oculta, que puedes ver al usar git branch -a 
+Esa rama oculta es origin/master.
+Tú al usar git fetch, bajas los cambios del repositorio remoto a la rama origin/master. (git fetch origin)
+Ahora ya tienes los cambios en origin/master, pero tendrías que pasarlos a la rama master, para eso tienes que usar: git merge origin/master
+
+
+
+
+                                             Dashboard de proyecto en Github
+
+Se recomienda subri las ramas a Github de una en una
+git push origin test
+git push origin dev 
+
+En github puedes observar la rama master que está por defecto, las ramas secundarias (test y dev) y las ramas activas (Las ramas se pueden activar y desactivar)
+
+
+En consola cambiamos a la rama dev y colocaremos git log --oneline --graph y se verá lo siguiente:
+ 7d63eec (HEAD -> dev, origin/test, origin/master, origin/dev, test, master)
+
+ En total son 6 ramas (3 locales y 3 de la nube)
+
+
+Crearemos una etiquete en el HTML y guardaremos hasta un commit en la rama dev,
+si volvemos a colocar git log --oneline --graph la carpeta local dev irá por delante de las demás ramas; en especial la rama remota (origin dev)
+por lo que tendremos que sincronizarlo con git push origin dev.
 
 
 
