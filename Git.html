@@ -432,11 +432,30 @@ En consola cambiamos a la rama dev y colocaremos git log --oneline --graph y se 
 
 
 Crearemos una etiquete en el HTML y guardaremos hasta un commit en la rama dev,
-si volvemos a colocar git log --oneline --graph la carpeta local dev irá por delante de las demás ramas; en especial la rama remota (origin dev)
-por lo que tendremos que sincronizarlo con git push origin dev.
+si volvemos a colocar git log --oneline --graph la carpeta local dev irá por delante de las demás ramas; en especial de la rama remota (origin dev)
+por lo que tendremos que sincronizarlo con git push origin dev.   (lo que se envía es la rama local dev a github y con eso ya está sincronizado)
+se vera en consolo ahora así:
+
+b5d87e9 (HEAD -> dev, origin/dev)  en este caso la rama local y la rama de la nube están sincronizadas.
 
 
 
+En github saldrá un mensaje donde señala que la rama dev ha sufrido cambios hace tantos minutos, ahí mismo en github se ve un botón donde puedes hacer la comparacion y combinar esas ramas.
+En github podremos mesclar las ramas con el botón de pull request (solicitud de jalar cambios)test absorvera los cambios de dev
+al oprimir el pull request de la notificacion aparecerá de que rama a que rama vas a fusionar, además comparará el código de ambas ramas.
+para finalizar oprimir el botón de create pull request, git hub te dirá si los cambios se podrán realizar, en caso afirmativo oprimir el botón merge pull request y despues confirm merge.
+
+En el ejemplo anterior se mescló la rama dev a la rama test en github, pero la rama test en consola (maquina local) aún no tiene ese cambio.
+vamos a la rama test y podemos utilizar el comando git remote -v y utilizar la opción (fetch),
+antes de traer los cambios podemos usar el comando git log --oneline --graph y veremos que la rama test "aparentemente están al día y sincronizados"
+ahora usamos el comando git fetch  (se traerá la informacion de github al local)
+si colomamos git log --oneline --graph observaremos que la rama test está por delante de la rama local test y esto nunca debe de pasar
+por lo que utilizararemos el comando  git pull origin test    (pull jala la informacion de github y actualiza la rama local)
+
+nota: fetch solo trae la informacion al área local PERO no actualiza las ramas locales.
+
+
+por lo que si colocomos de nuevo git log --oneline  --graph se verán las ramas sincronizadas test -> origin, test dev-> origin dev
 
 
 
