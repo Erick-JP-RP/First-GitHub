@@ -461,6 +461,52 @@ por lo que si colocomos de nuevo git log --oneline  --graph se verán las ramas 
 
 
 
+
+
+
+
+                                         Ignorando archivos y clonando repositorios
+si coloco git fetch y no hay informacion nueva no me traerá nada la consola, pero si coloco git pull origin test le estoy diciendo traeme los cambios.
+En este ejemplo ya está actualizado por lo que saldrá el mensaje:
+
+From https://github.com/Erick-JP-RP/First-GitHub
+ * branch            test       -> FETCH_HEAD
+Already up to date.
+
+si coloco git push origin test y no hay nada nuevo, por igual saldrá un mensaje donde señala que todo ya está actualizado.
+ahora cambiaremos a la rama dev
+y craremos un archivo nuevo llamado .gitignore (se coloca en automatico el simbolo de git)
+
+
+el archivo .gitignore sirve para poder listar todo lo que quiera que ignore git y no lo considere parte del repositorio.
+ej estos archivos, estas carpetas no los tomes en cuenta.
+
+crearemos un nuevo arvhico llamado privado.md y colocamos en consola git status, saldrán los nuevos archivos creados.
+por lo que si queremos ignorar el arvhivo privado.md debemos ir al archivo .gitignore y colocar
+privado.md y guardar, se observará que el archivo privado.md aparecerá como en letras grises y ya no se verá en color verde con la letra U.
+si en consola vuelves a poner git status solo aparecerá un archivo que es el .gitignore
+
+también podrías ignorar todos los archivos .md, por lo que tendrías que poner *.md (En ocasiones si los archivos como .md ya habían sido seguidos por git, no te los colocará en gris, por lo que tendrías que vaciar la cache de git)
+
+
+
+Por lo tanto:
+
+privado.md           especificamos el archivo a ignorar
+*.md                 ignoramos todos los archivos .md
+/privados            ignoramos una carpeta
+
+
+
+
+
+
+
+
+
+
+
+
 -->
 
 <!DOCTYPE html>
