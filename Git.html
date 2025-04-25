@@ -575,7 +575,31 @@ rebase significa que todos esos commits que estan en dev van a ser reestablecido
 
 
 Desde github desktop podemos crear una nueva rama menú branch-> new brach
+<<<<<<< Updated upstream
 las opciones de create branch based on (master, deb) siempre será mejor en dev...
+=======
+las opciones de create branch based on (master, deb) siempre será mejor en dev.
+
+Se puede tambien crear desde github desktop un pull request -> Menú branch -> Create pull request
+nos enviará a la web de github, ahora bien, antes de mescar los arivos de fix-readme podrás observar la siguiente leyenda:
+
+Erick-JP-RP wants to merge 5 commits into master from fix-readme
+Copied! 
+
+
+Aquí el error es que el fix-readme debe ser llevado a la rama dev y no a la rama master, por lo que deberá editarla si cuentas con los 
+permisos de administrador, en caso contrario deberás cancelar dicho pull request. 
+Ahí en la plataforma hay un botón que dice edit y ahí podrás editar el master por el dev.
+
+ahora si podemos mesclar (merge) y confirmarlo
+
+
+Nos pasamos a la rama deb por github desktop, y oprimimos el botón de fetch, en consola podremos observar que la rama dev origin
+va por delante de la rama dev, por lo que en terminal podemos usar git pull origin dev y en github desktop oprimir fetch
+
+Podremos observar que el dev y dev origin ya están al mismo nivel. Tambien podremos eliminar una rama en
+el menú branch -> Delete (Podrás eliminar las ramas donde estás parado y la origin fix en este caso )
+>>>>>>> Stashed changes
 
 
 -->
