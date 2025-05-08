@@ -575,13 +575,10 @@ rebase significa que todos esos commits que estan en dev van a ser reestablecido
 
 
 Desde github desktop podemos crear una nueva rama menú branch-> new brach
-<<<<<<< Updated upstream
-las opciones de create branch based on (master, deb) siempre será mejor en dev...
-=======
 las opciones de create branch based on (master, deb) siempre será mejor en dev.
 
 Se puede tambien crear desde github desktop un pull request -> Menú branch -> Create pull request
-nos enviará a la web de github, ahora bien, antes de mescar los arivos de fix-readme podrás observar la siguiente leyenda:
+nos enviará a la web de github, ahora bien, antes de mesclar los archivos de fix-readme podrás observar la siguiente leyenda:
 
 Erick-JP-RP wants to merge 5 commits into master from fix-readme
 Copied! 
@@ -590,17 +587,55 @@ Copied!
 Aquí el error es que el fix-readme debe ser llevado a la rama dev y no a la rama master, por lo que deberá editarla si cuentas con los 
 permisos de administrador, en caso contrario deberás cancelar dicho pull request. 
 Ahí en la plataforma hay un botón que dice edit y ahí podrás editar el master por el dev.
-
 ahora si podemos mesclar (merge) y confirmarlo
 
 
-Nos pasamos a la rama deb por github desktop, y oprimimos el botón de fetch, en consola podremos observar que la rama dev origin
-va por delante de la rama dev, por lo que en terminal podemos usar git pull origin dev y en github desktop oprimir fetch
+Nos pasamos a la rama deb por github desktop, y oprimimos el botón de fetch para traernos los cambios.
+En consola podremos observar que la rama dev origin va por delante de la rama dev,
+por lo que podríamos intentarle dalre un push a mi rama dev local para que quedaran al mismo nivel ambas ramas
+en este caso aparecia un error/conflicto al estár más actualizada la nube que nuestro local por lo que no podíamos resalizar un push.
+por lo que para resolverlo realizamos un git pull origin dev 
+*el pull tambien se puede utilizar en github desktop, en este caso aparecía deshabilitado, por lo que se realizó directo en consola.
 
-Podremos observar que el dev y dev origin ya están al mismo nivel. Tambien podremos eliminar una rama en
+Ahora bien. podremos observar que el dev y dev origin ya están al mismo nivel. Tambien podremos eliminar una rama en
 el menú branch -> Delete (Podrás eliminar las ramas donde estás parado y la origin fix en este caso )
->>>>>>> Stashed changes
 
+Otra aplicacion sería GitKraken pero si quieres utilizar proyectos privados debes pagar por ello, sin embargo, se presenta la informacion 
+en una interfaz muy buena y para mesclar archivos solo requieres arrastrar y oprimir el botón merge
+
+
+Visual studio code y Git
+
+
+Tambiíen con VS code se pueden manejar git de forma ya preinstalada.
+es el tercer icono de vs code donde aparece la figura de las ramas.
+para mejorar vs code podemos agregar la extensión GitLens.
+
+
+
+Nota1:
+con git tag + nombre (v1.0) el nombre en este caso es la version 1.0
+con git log --oneline --graph puedes observar la rama tag en terminal
+despues debemos avisarle a nuestro remoto que tenemos una rama tag por lo que ponemos
+git push origin v1.0
+podrás observar que en github cuentas ya con esa etiqueta.
+
+Nota2:
+Si estamos en github en nuestro repositorio y oprimimos punto "."  se abrirá en web Visual Studio Code en la nube.
+
+Nota3:
+Que pasa si actualizamos un archivo en la nube (editamos con VS code en la nube) y tambien actualizo ese mismo archivo en otro lado (local) pero con diferente informacion?
+R= Entraríamos en conflicto.
+
+intentamos traer la información de la nube con git pull origin dev pero saldrá un error donde dice: 
+Las ramas se han divergido y hay que especificar cómo reconciliarlas......
+pero también te señalará las opciones que puedes utilizar.
+1. git config pull.rebase false  #fusionar       (fusionar lo que hay arriba con lo que hay abajo)
+2. git config pull.rebase true   #rebasar           (rebasar lo que hay arriba con lo que hay abajo)
+3. git config pull.ff only       #solo avance rápido
+
+
+En este caso utilizamos la primera opción git config pull.rebase false
 
 -->
 
