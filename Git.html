@@ -466,7 +466,8 @@ por lo que si colocomos de nuevo git log --oneline  --graph se verán las ramas 
 
 
                                          Ignorando archivos y clonando repositorios
-si coloco git fetch y no hay informacion nueva no me traerá nada la consola, pero si coloco git pull origin test le estoy diciendo traeme los cambios.
+si coloco git fetch y no hay informacion nueva en la nube, no me traerá nada la consola,
+pero si coloco git pull origin test le estoy diciendo traeme los cambios.
 En este ejemplo ya está actualizado por lo que saldrá el mensaje:
 
 From https://github.com/Erick-JP-RP/First-GitHub
@@ -481,13 +482,12 @@ y craremos un archivo nuevo llamado .gitignore (se coloca en automatico el simbo
 el archivo .gitignore sirve para poder listar todo lo que quiera que ignore git y no lo considere parte del repositorio.
 ej estos archivos, estas carpetas no los tomes en cuenta.
 
-crearemos un nuevo arvhico llamado privado.md y colocamos en consola git status, saldrán los nuevos archivos creados.
+crearemos un nuevo archivo llamado privado.md y colocamos en consola git status, saldrán los nuevos archivos creados.
 por lo que si queremos ignorar el arvhivo privado.md debemos ir al archivo .gitignore y colocar
 privado.md y guardar, se observará que el archivo privado.md aparecerá como en letras grises y ya no se verá en color verde con la letra U.
 si en consola vuelves a poner git status solo aparecerá un archivo que es el .gitignore
 
 también podrías ignorar todos los archivos .md, por lo que tendrías que poner *.md (En ocasiones si los archivos como .md ya habían sido seguidos por git, no te los colocará en gris, por lo que tendrías que vaciar la cache de git)
-
 
 
 Por lo tanto:
@@ -498,14 +498,144 @@ privado.md           especificamos el archivo a ignorar
 
 
 
+posterior a ello debemos agregar los cambios con git add y despues con git commit -m "Mensaje"
+nota: una nueva forma de confirmar los cambios es solo colocar git commit y enter
+saldrá una ventana de mi editor llamada MING64
+oprimiremos la tecla i (insertar texto)
+Agregamos el texto y al finalizar oprimimos la tecla esc (escape) y despues :wq
+
+si consultamos de nuevo git status --oneline --graph observaremos que la rama dev local está por delante de la rama origin dev
+por lo que lo igualaremos con git push origin dev
 
 
 
 
 
+                             Clonacion
+Imaginemos que soy una persona nueva en el proyecto y requiero tener las ramas del proyecto.
+por lo que creamos una carpeta nueva en mi escritorio llamada proyects, ingresamos con la terminal a la carpeta cd proyects.
+y descargaremos "clonaremos" los archivos de github para traerlo a mi carpeta proyectos
+dentro de github hay un botón en color verde que dice código (code) -> clone y la url que copiaremos
+en consola se utilizará el comando git clone https://github.com/Erick-JP-RP/First-GitHub.git
+los archivos se clonaran de la nube a la carpeta proyects (recordando que en la terminal debemos estár en dicha carpeta)
+despues de clonar ingresaremos en la terminal a la carpeta /proyects/First-GitHub y nos marcará que estamos en la rama master
+si colocamos git branch solo nos saldrá la rama master (debiendo de tener todas las ramas del proyecto como test y dev)
+por lo que utilizaremos el comando git fetch (hey nube traeme la informacion que tienes tu)
+ antes de eso puedes revisar si estoy conectado con el remoto con git remote -v en este caso al ya haber utilizado git clone + url Ya se ligo nuestro local con la nube.
+si ejecutamos el comando git fetch y aún solo aparece la rama master utilizaremos el siguiente comando:
+git ls-remote (listado de lo que tiene la nube y no tu computadora) saldrá algo como:
+
+$ git ls-remote
+From https://github.com/Erick-JP-RP/First-GitHub.git
+7d63eec0a6c4aaac9d5a8a776ab318f95e84ad77        HEAD
+5704d9671fc83d114ebfd8f1bbbb93a248ef1027        refs/heads/dev
+7d63eec0a6c4aaac9d5a8a776ab318f95e84ad77        refs/heads/master
+6cc579c52c671b5937f288bb50305188707c7c19        refs/heads/test
+b5d87e9dbf35f8648c5d37d131bd42b8bc126f44        refs/pull/1/head
+
+
+con la lista anterior ya podemos traernos las ramas del servidor a nuestra coputadora
+git fech sirve para preguntar informacion de la rama actual donde estamos parados
+pero podemos traer toda la informacion de todas las ramas utilizando el comando: git fetch --all
+
+si utilizamos de nuevo el comando git branch aparecerá solamente master
+
+tanto las ramas locales como las remotas se pueden listar utilizando el comando git branch -a  y nos saldrá lo siguiente:
+
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+  remotes/origin/master
+  remotes/origin/test
+
+Lo anterior quiere decir que en el remoto si existe la rama dev, master y test.
+
+
+podemos cambiar de rama con git switch dev sin problema alguno (no se requiere de crear una rama ya que ya se bajó de la nube)
+por lo que podremos ver la ruta así: /Desktop/proyects/First-GitHub (dev)  (el First-GitHub es el nombre de la carpeta que le di en la nube)
+si colocas ahora git brach aparecerá master y dev
+si cambiamos de carpeta con git switch test y despues colocamos git branch aparecerá ahora la carpeta test, master y dev.
+en otras palabras para que aparezca en git branch debemos viajar a las ramas con git switch.
 
 
 
+Gitlab es muy parecido a github donde puedes subir las ramas por igual, existen ciertos comandos diferentes y ciertas diferencias pero practicamente es lo mismo.
+
+
+
+
+                                                               GitHub Desktop
+Se puede utilizar un programa para no utilizar la terminal de git en este caso descargaremos de la web  Github desktop.
+para mesclar una rama en github desktop ve al menú branch -> Merge into current branch (debemos estar en la rama test y seleccionaremos la rama a fusionar dev), después oprimir el botón create merge commit
+
+
+squash and merge significa que si tienes 10 commits en dev que nos vamos a traer a test, el te está diciendo que si quieres que esos 10 commits los mescle en un solo commit y un solo commit lo llevará a test.
+rebase significa que todos esos commits que estan en dev van a ser reestablecidos a la rama test, si son 10 commits los 10 serán restablecidos.
+
+
+
+Desde github desktop podemos crear una nueva rama menú branch-> new brach
+las opciones de create branch based on (master, deb) siempre será mejor en dev.
+
+Se puede tambien crear desde github desktop un pull request -> Menú branch -> Create pull request
+nos enviará a la web de github, ahora bien, antes de mesclar los archivos de fix-readme podrás observar la siguiente leyenda:
+
+Erick-JP-RP wants to merge 5 commits into master from fix-readme
+Copied! 
+
+
+Aquí el error es que el fix-readme debe ser llevado a la rama dev y no a la rama master, por lo que deberá editarla si cuentas con los 
+permisos de administrador, en caso contrario deberás cancelar dicho pull request. 
+Ahí en la plataforma hay un botón que dice edit y ahí podrás editar el master por el dev.
+ahora si podemos mesclar (merge) y confirmarlo
+
+
+Nos pasamos a la rama deb por github desktop, y oprimimos el botón de fetch para traernos los cambios.
+En consola podremos observar que la rama dev origin va por delante de la rama dev,
+por lo que podríamos intentarle dalre un push a mi rama dev local para que quedaran al mismo nivel ambas ramas
+en este caso aparecia un error/conflicto al estár más actualizada la nube que nuestro local por lo que no podíamos resalizar un push.
+por lo que para resolverlo realizamos un git pull origin dev 
+*el pull tambien se puede utilizar en github desktop, en este caso aparecía deshabilitado, por lo que se realizó directo en consola.
+
+Ahora bien. podremos observar que el dev y dev origin ya están al mismo nivel. Tambien podremos eliminar una rama en
+el menú branch -> Delete (Podrás eliminar las ramas donde estás parado y la origin fix en este caso )
+
+Otra aplicacion sería GitKraken pero si quieres utilizar proyectos privados debes pagar por ello, sin embargo, se presenta la informacion 
+en una interfaz muy buena y para mesclar archivos solo requieres arrastrar y oprimir el botón merge
+
+
+Visual studio code y Git
+
+
+Tambiíen con VS code se pueden manejar git de forma ya preinstalada.
+es el tercer icono de vs code donde aparece la figura de las ramas.
+para mejorar vs code podemos agregar la extensión GitLens.
+
+
+
+Nota1:
+con git tag + nombre (v1.0) el nombre en este caso es la version 1.0
+con git log --oneline --graph puedes observar la rama tag en terminal
+despues debemos avisarle a nuestro remoto que tenemos una rama tag por lo que ponemos
+git push origin v1.0
+podrás observar que en github cuentas ya con esa etiqueta.
+
+Nota2:
+Si estamos en github en nuestro repositorio y oprimimos punto "."  se abrirá en web Visual Studio Code en la nube.
+
+Nota3:
+Que pasa si actualizamos un archivo en la nube (editamos con VS code en la nube) y tambien actualizo ese mismo archivo en otro lado (local) pero con diferente informacion?
+R= Entraríamos en conflicto.
+
+intentamos traer la información de la nube con git pull origin dev pero saldrá un error donde dice: 
+Las ramas se han divergido y hay que especificar cómo reconciliarlas......
+pero también te señalará las opciones que puedes utilizar.
+1. git config pull.rebase false  #fusionar       (fusionar lo que hay arriba con lo que hay abajo)
+2. git config pull.rebase true   #rebasar           (rebasar lo que hay arriba con lo que hay abajo)
+3. git config pull.ff only       #solo avance rápido
+
+
+En este caso utilizamos la primera opción git config pull.rebase false
 
 -->
 
